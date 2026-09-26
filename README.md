@@ -1,59 +1,61 @@
 # GenAI Market Research Automation
-**Multi-Agent System using CrewAI, Gemini, and Web Search**
 
-🔗 **Repository:** https://github.com/mohammadpakdoust/genai-market-research
-
----
+A multi-agent workflow that separates **web research** from **analysis and synthesis** to produce structured market-research reports.
 
 ## Overview
 
-This project implements a **multi-agent Generative AI system** that automates end-to-end market research and strategic analysis for a given company domain.
+The project uses specialized agents for two distinct responsibilities:
 
-The system combines:
-- Large Language Models (LLMs) for reasoning and synthesis  
-- Live web search for up-to-date, factual information  
-- Agent orchestration to separate research and analysis responsibilities  
+1. **Research Agent** — gathers current company, market, competitor, and industry information from web search.
+2. **Analyst Agent** — synthesizes the collected material into a structured business report.
 
-The output is a business-ready market research report that includes an executive summary, SWOT analysis, and actionable strategic recommendations.
+This separation makes the workflow easier to inspect and reason about than a single monolithic prompt.
 
----
+## Output
 
-## Key Features
+The generated report can include:
 
-- 🔍 Live market research using real-time web search  
-- 🤖 Multi-agent architecture (Research Agent + Analyst Agent)  
-- 🧠 LLM-driven synthesis with low-temperature, factual outputs  
-- 📄 Structured business reports generated in Markdown  
-- 🔐 Secure API key handling via environment variables  
+- Executive summary
+- Company and market overview
+- Competitor analysis
+- SWOT analysis
+- Strategic observations and recommendations
 
----
+## Architecture
 
-## System Architecture
+```text
+Company / domain
+      ↓
+Research Agent
+      ↓
+Web search results
+      ↓
+Analyst Agent
+      ↓
+Structured Markdown report
+```
 
-### Agents
-
-**Research Agent**
-- Gathers current, factual information using a web search tool
-- Focuses on company overview, products, market, recent developments, and competitors
-
-**Analyst Agent**
-- Synthesizes research into executive summaries, SWOT analysis, and strategic recommendations
-
----
-
-## Technology Stack
+## Tech stack
 
 - Python 3.11+
 - CrewAI
 - Google Gemini
 - Serper Web Search
-- uv
 - YAML configuration
+- uv
 
----
+## Key implementation ideas
 
-## Author
+- Separate research and synthesis responsibilities
+- Use external search for current information
+- Keep API credentials in environment variables
+- Generate reports in a consistent Markdown structure
+- Keep agent configuration separate from application code
 
-**Mohammad Pakdoust**  
-Graduate Student – Computing & Data Analytics  
-Halifax, Nova Scotia, Canada
+## Repository
+
+https://github.com/mohammadpakdoust/GenerativeAI-Market-research
+
+## Background
+
+Built as an applied Generative AI project focused on orchestration, structured outputs, and practical research automation.
